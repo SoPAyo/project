@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link href="https://fonts.googleapis.com/css?family=Noto+Sans+TC|Open+Sans&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/68f8681dba.js" crossorigin="anonymous"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/style.css')}}">
+		<title>{{main_title}}</title>
+		
+	</head>
+	
+	<body>
+		
+        <header>
+	        <div class='container'>
+				<nav class="navbar navbar-expand-lg navbar-light">
+				  <a class="navbar-brand" href="index.html"><img style="width: 155px;height:155px;"src="https://upload.wikimedia.org/wikipedia/zh/thumb/6/62/National_Taipei_University_of_Education_logo.svg/1200px-National_Taipei_University_of_Education_logo.svg.png" width='155'></a>
+				  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				    <span class="navbar-toggler-icon"></span>
+				  </button>
+				
+				  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				    <ul class="navbar-nav mr-auto">
+				      <li class="nav-item">
+				        <a class="nav-link" href="home">主頁</a>
+				      </li>
+				      <li class="nav-item">
+				        <a class="nav-link" href="refer">參考資料</a>
+				      </li>
+				      <!--<li class="nav-item">
+				        <a class="nav-link" href="faq.html">常見問題</a>
+				      </li>	
+				      <li class="nav-item">
+				        <a class="nav-link" href="contact.html">聯絡我們</a>-->
+				      </li>			
+				    </ul>
+				  
+				  </div>
+				</nav>
+	        </div>
+        </header>
+		<section id='intro'>
+			
+			<div class="jumbotron">
+			  <div class='container'>
+				  <div class='row'>
+					  <div class='col-md-12'>
+						  <h1 class="display-4">數位藝術專題研究</h1>
+						  <p class="lead"><b>找到你可能感興趣的新聞!</b></p>
+						  <a class="btn btn-primary btn-lg" href="home" role="button">隨便看看</a>
+						  <form method="post" >
+							<input class="btn btn-primary btn-lg" type="text" name="user_search" placeholder="搜尋">
+							<input type="submit" name="send" value="找新聞">
+					  	  </form>
+					  </div>
+				  </div>
+			  </div>
+			</div>
+			
+		</section>
+		<h2 style="display:inline">TechCrunch - 有關{{user_search}}的新聞</h2>
+        <section id='second'>		
+				{% for t in TC_title_img_list%}
+					<div class="title-div"  onclick="location.href='{{t.href}}'">
+						<img  class="title-img" src="{{t.img}}">
+						<div  class="title-size">{{ t.title }}</div>
+					</div>
+				{% endfor %}
+
+			
+        </section> 
+		<h2 style="display:inline">TheVerge - 有關{{user_search}}的新聞</h2>
+		<section id='second'>
+				{% for d in TV_title_img_list%}
+					<div class="title-div"  onclick="location.href='{{d.href}}'">
+						<img  class="title-img" src="{{d.img}}">
+						<div  class="title-size">{{ d.title }}</div>
+					</div>
+				{% endfor %}
+        </section> 
+        <section id='latest'>
+	        
+	        <div class="container">
+		        <div class='row'>
+					  <div class='col-md-12 text-center'>
+					  	<h3>其他資源</h3>
+					  	<div class='row'>
+						  	<div class='col-md-4 text-left'>
+							  	<div class='outer'>
+								  	<a href='https://getbootstrap.com/'>
+									  	<div class='upper'>
+											<img style="width: 300px;height:300px;"src='https://pbs.twimg.com/profile_images/1273081551354396672/-Tzadxix_400x400.jpg'>
+											
+											<div class='innertext'>
+												<span>Bootstrap</span>
+				
+											</div>
+									  	</div>
+									  	<div class='lower'>
+										  	<h3>Bootstrap</h3>
+										  	<span><i class="fas fa-map-marker-alt"></i> <a href="https://getbootstrap.com/">前往Bootstap官網</a></span><br>
+									  	</div>
+								  	</a>
+							  	</div>
+						  	</div>
+						  	<div class='col-md-4 text-left'>
+							  	<div class='outer'>
+								  	<a href='https://flask.palletsprojects.com/en/2.0.x/'>
+									  	<div class='upper'>
+											<img style="width: 300px;height:300px;"src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoQplIanjOeIIqZiss4Jg93G27AK9ubZATxnaeXvZdetg98vgzgJKaM2cy4K2Y-kS1bdM&usqp=CAU'>
+											<div class='innertext'>
+												<span>FLASK</span>	
+											</div>
+									  	</div>
+									  	<div class='lower'>
+										  	<h3>FLASK</h3>
+										  	<span><i class="fas fa-map-marker-alt"></i><a href="https://flask.palletsprojects.com/en/2.0.x/">前往FLASK官網</a></span><br>
+										  	
+									  	</div>
+								  	</a>
+							  	</div>
+						  	</div>
+						  	<div class='col-md-4 text-left'>
+							  	<div class='outer'>
+								  	<a href='https://www.selenium.dev/'>
+									  	<div class='upper'>
+											<img style="width: 300px;height:300px;"src='https://upload.wikimedia.org/wikipedia/commons/d/d5/Selenium_Logo.png'>
+											<div class='innertext'>
+												<span>Selenium</span>
+											</div>
+									  	</div>
+									  	<div class='lower'>
+										  	<h3>Selenium</h3>
+										  	<span><i class="fas fa-map-marker-alt"></i><a href="https://www.selenium.dev/">前往Selenium官網</a></span><br>
+										  	
+									  	</div>
+								  	</a>
+							  	</div>
+						  	</div>						
+					  	</div>
+					  </div>
+			    <div>
+	        </div>
+        
+        </section>
+		
+		<script src="{{url_for('static', filename='js/script.js') }}" ></script>
+	</body>
+	
+</html>
+
+
